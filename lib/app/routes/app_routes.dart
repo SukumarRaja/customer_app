@@ -28,7 +28,8 @@ class AppRoutes {
   //       : AccessLocationScreen(fromSignUp: false, fromHome: false, route: Get.currentRoute);
   // }
 
-  static  final routes = [
+  static  List<GetPage> routes = [
+    GetPage(name: initial, page: () => Container()),
 
   ];
 }
