@@ -58,6 +58,7 @@ class InitialPage extends StatelessWidget {
     //   });
     // });
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: LoginPage(),
     );
   }
