@@ -5,9 +5,13 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../../controller/auth/auth.dart';
 import '../../../responsive/responsive.dart';
+import '../../../utility/theme/colors.dart';
 import '../../widgets/common_button.dart';
+import '../../widgets/common_text_form_field.dart';
 import '../../widgets/conditions_check.dart';
+import '../../widgets/country_code_form_field.dart';
 import '../../widgets/gust_button.dart';
+import '../sign_in/sign_in.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -114,29 +118,36 @@ class LoginPage extends StatelessWidget {
                                 children: [
                                   //phone
 
-                                  Container(
-                                    // height: 60,
-                                    margin: const EdgeInsets.only(
-                                        right: 20, left: 20),
-
-                                    width: Get.width,
-                                    child: TextFormField(
-                                      decoration:
-                                          InputDecoration(hintText: "phone".tr),
-                                    ),
+                                  CountryCodeTextFormField(
+                                    maxLength: 10,
+                                    buttonHintTextColor: AppColors.grey,
+                                    borderColor:
+                                        AppColors.grey.withOpacity(0.1),
+                                    controller: AuthController.to.lPhone,
+                                    focusNode: AuthController.to.lPhoneFocus,
+                                    nextFocus: AuthController.to.lPasswordFocus,
+                                    initialCountryCode: "IN",
+                                    onSaved: (phone) {
+                                      AuthController.to.phoneCode =
+                                          phone!.countryCode;
+                                    },
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
                                   ),
 
                                   //password
-                                  Container(
-                                    // height: 60,
-                                    margin: const EdgeInsets.only(
-                                        right: 20, left: 20),
-                                    width: Get.width,
-                                    child: TextFormField(
-                                      decoration: InputDecoration(
-                                          hintText: "password".tr),
-                                    ),
+                                  CommonTextFormField(
+                                    hintText: "password".tr,
+                                    controller: AuthController.to.lPassword,
+                                    focusNode: AuthController.to.lPasswordFocus,
+                                    inputType: TextInputType.visiblePassword,
+                                    inputAction: TextInputAction.done,
+                                    prefixIcon: "assets/images/lock.png",
+                                    isPassword: true,
+                                    divider: true,
                                   ),
+
                                   const SizedBox(height: 10),
                                   Row(
                                     children: [
@@ -159,7 +170,9 @@ class LoginPage extends StatelessWidget {
                                                     buttonText: 'sign_up'.tr,
                                                     transparent: true,
                                                     // onPressed: () => Get.toNamed(RouteHelper.getSignUpRoute()),
-                                                    onPressed: () {})),
+                                                    onPressed: () {
+                                                      Get.to(() => SignIn());
+                                                    })),
                                             Expanded(
                                                 child: CommonButton(
                                                     buttonText: 'sign_in'.tr,

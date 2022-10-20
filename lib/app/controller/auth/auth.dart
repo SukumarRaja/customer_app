@@ -1,7 +1,36 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
   static AuthController get to => Get.put(AuthController());
+
+  final TextEditingController fName = TextEditingController();
+  final TextEditingController lName = TextEditingController();
+  final TextEditingController phone = TextEditingController();
+  final TextEditingController password = TextEditingController();
+  final TextEditingController cPassword = TextEditingController();
+  final TextEditingController referal = TextEditingController();
+
+  final TextEditingController lPhone = TextEditingController();
+  final TextEditingController lPassword = TextEditingController();
+
+  final FocusNode fNameFocus = FocusNode();
+  final FocusNode lNameFocus = FocusNode();
+  final FocusNode phoneFocus = FocusNode();
+  final FocusNode pFocus = FocusNode();
+  final FocusNode cPFocus = FocusNode();
+  final FocusNode referalFocus = FocusNode();
+
+  final FocusNode lPhoneFocus = FocusNode();
+  final FocusNode lPasswordFocus = FocusNode();
+
+  final _phoneCode = "+91".obs;
+
+  get phoneCode => _phoneCode.value;
+
+  set phoneCode(value) {
+    _phoneCode.value = value;
+  }
 
   final _exitFromApp = true.obs;
 
