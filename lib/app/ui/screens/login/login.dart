@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:customer_app/app/ui/screens/forgot_password/forgot.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -154,7 +155,9 @@ class LoginPage extends StatelessWidget {
                                       buildRememberMe(),
                                       TextButton(
                                         // onPressed: () => Get.toNamed(RouteHelper.getForgotPassRoute(false, null)),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Get.to(() => ForgotPasswordPage());
+                                        },
                                         child: Text('${'forgot_password'.tr}?'),
                                       ),
                                     ],

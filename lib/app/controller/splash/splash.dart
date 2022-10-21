@@ -36,8 +36,15 @@ class SplashController extends GetxController {
   set isConfigDataSuccess(value) {
     _isConfigDataSuccess.value = value;
   }
+  // ConfigModel _configModel;
 
-  var configModel;
+  final _configModelDemo = false.obs;
+
+  get configModelDemo => _configModelDemo.value;
+
+  set configModelDemo(value) {
+    _configModelDemo.value = value;
+  }
 
   getConfigData() async {
     hasConnection = true;

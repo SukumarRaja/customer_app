@@ -79,4 +79,12 @@ class AuthController extends GetxController {
   set isLoading(value) {
     _isLoading.value = value;
   }
+
+  final _verificationCode = "".obs;
+
+  get verificationCode => _verificationCode.value;
+
+  set verificationCode(value) {
+    _verificationCode.value = value;
+  }
 }

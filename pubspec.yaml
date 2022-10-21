@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.5
   shared_preferences: ^2.0.15
   http: ^0.13.5
+  pin_code_fields: ^7.4.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
